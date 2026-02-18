@@ -13,20 +13,22 @@ st.set_page_config(
 st.title("📊 Dashboard Persebaran Seller E-Commerce")
 st.write("Dashboard ini menampilkan distribusi seller berdasarkan State dan Kota.")
 
-# ===============================
-# Load Data
-# ===============================
 import os
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(page_title="Dashboard", layout="wide")
+
+# ===============================
+# Load Data
+# ===============================
 @st.cache_data
 def load_data():
     base_dir = os.path.dirname(__file__)
     data_path = os.path.join(base_dir, "main_data.csv")
     return pd.read_csv(data_path)
 
-
+df = load_data()   # <<< INI WAJIB ADA DAN DI ATAS FILTER
 
 # ===============================
 # Sidebar Filter
